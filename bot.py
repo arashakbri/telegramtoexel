@@ -8,10 +8,12 @@ bot = telebot.TeleBot(TOKEN)
 def handle_message(message):
     username = message.chat.username or message.chat.first_name or "Unknown"
     text = message.text
-    print(f"{username}: {text}")
+    log = f"{username}: {text}"
+    print(log)  # ← این خط پیام رو توی لاگ GitHub چاپ می‌کنه
     bot.reply_to(message, "✅ پیام شما دریافت شد!")
 
 print("ربات فعال شد...")
+
 while True:
     try:
         bot.polling()
